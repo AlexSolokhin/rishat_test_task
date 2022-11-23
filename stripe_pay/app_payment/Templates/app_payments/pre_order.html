@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order {{ order.id }}</title>
+</head>
+  <body>
+  <h1>Заказ {{ order.id }}</h1>
+  {% for position in order.items.all %}
+      <ul>
+          <li>
+              <b>Product:</b> {{ position.item.name }}
+          </li>
+          <li>
+              <b>Price:</b> {{ position.item.price }}
+          </li>
+          <li>
+              <b>Quantity:</b> {{ position.quantity }}
+          </li>
+      </ul>
+  {% endfor %}
+  <script src="https://js.stripe.com/v3/"></script>
+  <button id="order_button" type="submit">Order Now</button>
+  <script type="text/javascript">
+      const stripe = Stripe('{{ stripe_pk }}');
+      const buyButton = document.getElementById("order_button");
+      buyButton.addEventListener('click', function() {
+        fetch('/make_order/{{ order.id }}', {method: 'GET'})
+        .then(function(response) {return response.json();
+            })
+        .then(function(session) {
+            return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+        .then(function(result) {
+            if (result.error) {alert(result.error.message);}
+            })
+        })
+  </script>
+    <form action="/orders">
+      <button type="submit">Back</button>
+    </form>
+  </body>
+</html>

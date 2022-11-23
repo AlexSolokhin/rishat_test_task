@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our bundles</title>
+</head>
+<body>
+    <h1>Choose your Bundle</h1>
+    <ul>
+    {% for order in orders %}
+        <li>
+            <a href="order/{{ order.id }}">
+                {{ order.id }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+    <form action="/">
+      <button type="submit">Back</button>
+    </form>
+</body>
+</html>

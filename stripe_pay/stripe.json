@@ -1,0 +1,84 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$Ybhml1fliei3f86ZpRX6tI$ax+/oUL2ANKBmIRRRIuFsmoT8LQT+9uHb4/Q6EtsTR0=",
+    "last_login": "2022-11-19T14:55:04.528Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-19T14:54:43.267Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+
+{
+  "model": "app_payment.item",
+  "pk": 1,
+  "fields": {
+    "name": "Iphone 13",
+    "description": "Not like a previous one",
+    "price": 120000
+  }
+},
+{
+  "model": "app_payment.item",
+  "pk": 2,
+  "fields": {
+    "name": "MacBook Pro",
+    "description": "Best for business",
+    "price": 150000
+  }
+},
+{
+  "model": "app_payment.item",
+  "pk": 3,
+  "fields": {
+    "name": "IPad",
+    "description": "Are there really people who use it in 2022?",
+    "price": 40000
+  }
+},
+{
+  "model": "app_payment.order",
+  "pk": 1,
+  "fields": {
+    "created": "2022-11-23T09:43:47.686Z",
+    "discount": 1,
+    "tax": 1
+  }
+},
+{
+  "model": "app_payment.orderitem",
+  "pk": 1,
+  "fields": {
+    "item": 3,
+    "order": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "app_payment.orderitem",
+  "pk": 2,
+  "fields": {
+    "item": 1,
+    "order": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "app_payment.orderitem",
+  "pk": 3,
+  "fields": {
+    "item": 2,
+    "order": 1,
+    "quantity": 1
+  }
+}
+]
